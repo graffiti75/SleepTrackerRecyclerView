@@ -125,6 +125,5 @@
             app:layout_constraintStart_toEndOf="@+id/quality_four_image"
             app:layout_constraintTop_toTopOf="@+id/quality_four_image"
             app:srcCompat="@drawable/ic_sleep_5" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
