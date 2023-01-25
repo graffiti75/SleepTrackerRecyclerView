@@ -133,18 +133,6 @@ class SleepTrackerViewModel(
 		_navigateToSleepQuality.value = null
 	}
 
-	private val _navigateToSleepDataQuality = MutableLiveData<Long>()
-	val navigateToSleepDataQuality
-		get() = _navigateToSleepDataQuality
-
-	fun onSleepNightClicked(id: Long) {
-		_navigateToSleepDataQuality.value = id
-	}
-
-	fun onSleepDataQualityNavigated() {
-		_navigateToSleepDataQuality.value = null
-	}
-
 	init {
 		initializeTonight()
 	}
@@ -242,15 +230,15 @@ class SleepTrackerViewModel(
 		_showSnackbarEvent.value = true
 	}
 
-	/**
-	 * Called when the ViewModel is dismantled.
-	 * At this point, we want to cancel all coroutines;
-	 * otherwise we end up with processes that have nowhere to return to
-	 * using memory and resources.
+	private val _navigateToSleepDataQuality = MutableLiveData<Long>()
+	val navigateToSleepDataQuality: LiveData<Long>
+		get() = _navigateToSleepDataQuality
 
-	override fun onCleared() {
-	super.onCleared()
-	viewModelJob.cancel()
+	fun onSleepNightClicked(id: Long){
+		_navigateToSleepDataQuality.value = id
 	}
-	 */
+
+	fun onSleepDataQualityNavigated() {
+		_navigateToSleepDataQuality.value = null
+	}
 }
